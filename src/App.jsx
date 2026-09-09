@@ -14,6 +14,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import { supabase } from "./lib/supabase";
 
 import "./App.css";
@@ -100,6 +101,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile user={user} profile={profile} />} />
 
         </Routes>
 

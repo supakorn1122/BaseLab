@@ -220,6 +220,9 @@ a {
   background: #0a1628;
 }
 
+.account-profile-link { display: flex; align-items: center; gap: 7px; min-width: 0; color: inherit; }
+.account-profile-link:hover .account-details strong { color: #60c7ff; }
+
 .account-avatar {
   width: 29px;
   height: 29px;
@@ -1348,6 +1351,47 @@ main {
 .auth-switch a { color: #54c9ff; font-weight: 700; }
 
 /* =========================
+   PROFILE
+========================= */
+
+.profile-page {
+  width: min(1080px, 92%);
+  min-height: 720px;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  padding: 70px 0;
+}
+
+.profile-card {
+  width: min(100%, 540px);
+  overflow: hidden;
+  border: 1px solid #1d3c5b;
+  border-radius: 24px;
+  background: #091727;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, .28);
+}
+
+.profile-cover { height: 112px; background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, .65), transparent 28%), linear-gradient(120deg, #123b61, #0b1b2d 62%, #1677ff); }
+.profile-content { position: relative; padding: 0 34px 34px; }
+.profile-avatar { width: 78px; height: 78px; display: grid; place-items: center; margin-top: -39px; border: 4px solid #091727; border-radius: 23px; background: linear-gradient(135deg, #60c7ff, #1677ff); color: #02101d; font-size: 29px; font-weight: 900; }
+.profile-role-icon { position: absolute; top: -19px; right: 34px; display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid #2b5c82; border-radius: 13px; background: #0b1b2d; font-size: 19px; }
+.profile-content .auth-eyebrow { margin-top: 22px; }
+.profile-content h1 { margin: 0; font-size: 30px; word-break: break-word; }
+.profile-email { margin: 7px 0 23px; color: #7c92a7; font-size: 12px; word-break: break-all; }
+.profile-role-card { display: grid; gap: 4px; padding: 16px; border: 1px solid #245276; border-radius: 14px; background: linear-gradient(135deg, #0d2945, #0b1e32); }
+.profile-role-card span, .profile-meta span { color: #7792a9; font-size: 9px; }
+.profile-role-card strong { color: #60c7ff; font-size: 17px; }
+.profile-role-card small { color: #a8bfd1; font-size: 10px; }
+.profile-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 24px; }
+.profile-meta > div { display: grid; gap: 5px; padding: 13px; border: 1px solid #1d3c5b; border-radius: 12px; background: #07111f; }
+.profile-meta strong { color: #c8e8ff; font-size: 11px; }
+.profile-actions { display: flex; gap: 10px; }
+.profile-home-link, .profile-sign-out { height: 42px; flex: 1; display: inline-flex; align-items: center; justify-content: center; border-radius: 11px; font-size: 11px; font-weight: 700; }
+.profile-home-link { border: 1px solid #24496f; background: #0b192b; color: #b8dcf5; }
+.profile-sign-out { border: 1px solid rgba(248, 113, 113, .48); background: rgba(185, 28, 28, .13); color: #fca5a5; cursor: pointer; }
+
+/* =========================
    LIGHT MODE
 ========================= */
 
@@ -2461,10 +2505,23 @@ main {
 .app.light .account-area { background: #edf5fc; border-color: #d1e2f1; }
 .app.light .account-details strong { color: #17324a; }
 .app.light .account-details span { color: #087dc3; }
+.app.light .profile-card { background: white; border-color: #d1e3f0; box-shadow: 0 28px 70px rgba(22, 87, 140, .12); }
+.app.light .profile-cover { background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, .6), transparent 28%), linear-gradient(120deg, #bce7ff, #eaf7ff 62%, #8acfff); }
+.app.light .profile-avatar { border-color: white; color: white; }
+.app.light .profile-role-icon { border-color: #b9dff3; background: #f4faff; }
+.app.light .profile-content h1 { color: #153b5b; }
+.app.light .profile-email { color: #688095; }
+.app.light .profile-role-card { background: #edf8ff; border-color: #b9dff3; }
+.app.light .profile-role-card span, .app.light .profile-meta span { color: #688095; }
+.app.light .profile-role-card strong { color: #087dc3; }
+.app.light .profile-role-card small { color: #5f7588; }
+.app.light .profile-meta > div { border-color: #d7e6f1; background: #f8fbfe; }
+.app.light .profile-meta strong { color: #173d5c; }
+.app.light .profile-home-link { border-color: #c9deef; background: white; color: #27628f; }
 
 @media (max-width: 800px) {
   .nav-actions { margin-left: auto; }
-  .account-details { display: none; }
+  .account-details { display: block; max-width: 92px; }
 }
 
 @media (max-width: 600px) {
@@ -2473,4 +2530,12 @@ main {
   .login-button, .register-button { padding: 0 9px; font-size: 9px; }
   .account-area { gap: 5px; }
   .sign-out-button { padding: 0 7px; }
+  .account-details { max-width: 72px; }
+  .account-details strong { font-size: 9px; }
+  .account-details span { font-size: 7px; }
+  .profile-page { width: 92%; min-height: 620px; padding: 35px 0; }
+  .profile-content { padding: 0 20px 24px; }
+  .profile-role-icon { right: 20px; }
+  .profile-meta { grid-template-columns: 1fr; }
+  .profile-actions { flex-direction: column; }
 }

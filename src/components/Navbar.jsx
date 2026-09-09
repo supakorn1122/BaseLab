@@ -64,13 +64,15 @@ function Navbar({ darkMode, setDarkMode, user, profile }) {
         <div className="nav-actions">
           {user ? (
             <div className="account-area">
-              <div className="account-avatar" aria-hidden="true">
-                {displayName.charAt(0).toUpperCase()}
-              </div>
-              <div className="account-details">
-                <strong>{displayName}</strong>
-                <span>{roleLabels[profile?.role] || "สมาชิก"}</span>
-              </div>
+              <Link to="/profile" className="account-profile-link" aria-label="ดูโปรไฟล์">
+                <div className="account-avatar" aria-hidden="true">
+                  {displayName.charAt(0).toUpperCase()}
+                </div>
+                <div className="account-details">
+                  <strong>{displayName}</strong>
+                  <span>{roleLabels[profile?.role] || "สมาชิก"}</span>
+                </div>
+              </Link>
               <button className="sign-out-button" onClick={handleSignOut}>ออกจากระบบ</button>
             </div>
           ) : (
